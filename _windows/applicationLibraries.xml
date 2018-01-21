@@ -92,6 +92,16 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ast-2.3.0/lib" />
       </SOURCES>
     </library>
+    <library name="autoprefixer-rails (v7.2.5, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/autoprefixer-rails-7.2.5/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/autoprefixer-rails-7.2.5/vendor" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/autoprefixer-rails-7.2.5/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/autoprefixer-rails-7.2.5/vendor" />
+      </SOURCES>
+    </library>
     <library name="bigdecimal (v1.3.0, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/2.4.0/bigdecimal" />
@@ -110,6 +120,20 @@
         <root url="file://$APPLICATION_CONFIG_DIR$/rubystubs/rubystubs24/bindex/0.5.0" />
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bindex-0.5.0/lib" />
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bindex-0.5.0/ext" />
+      </SOURCES>
+    </library>
+    <library name="bootstrap-sass (v3.3.7, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/assets" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/templates" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/tasks" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/assets" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/templates" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/tasks" />
       </SOURCES>
     </library>
     <library name="builder (v3.2.3, ruby-2.4.3-p205) [gem]">
@@ -188,6 +212,14 @@
       </CLASSES>
       <SOURCES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/coffee-script-source-1.12.2/lib" />
+      </SOURCES>
+    </library>
+    <library name="commonjs (v0.2.7, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/commonjs-0.2.7/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/commonjs-0.2.7/lib" />
       </SOURCES>
     </library>
     <library name="concurrent-ruby (v1.0.5, ruby-2.4.3-p205) [gem]">
@@ -284,6 +316,42 @@
       </CLASSES>
       <SOURCES>
         <root url="file://C:/Ruby24-x64/lib/ruby/2.4.0/json/add" />
+      </SOURCES>
+    </library>
+    <library name="less (v2.6.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-2.6.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-2.6.0/bin" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-2.6.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-2.6.0/bin" />
+      </SOURCES>
+    </library>
+    <library name="less-rails (v2.8.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-rails-2.8.0/gemfiles" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-rails-2.8.0/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-rails-2.8.0/gemfiles" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/less-rails-2.8.0/lib" />
+      </SOURCES>
+    </library>
+    <library name="libv8 (v3.16.14.19, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/release" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/release" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/lib" />
       </SOURCES>
     </library>
     <library name="loofah (v2.1.1, ruby-2.4.3-p205) [gem]">

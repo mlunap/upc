@@ -310,6 +310,16 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/jbuilder-2.7.0/gemfiles" />
       </SOURCES>
     </library>
+    <library name="jquery-rails (v4.3.1, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/jquery-rails-4.3.1/vendor" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/jquery-rails-4.3.1/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/jquery-rails-4.3.1/vendor" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/jquery-rails-4.3.1/lib" />
+      </SOURCES>
+    </library>
     <library name="json (v2.0.4, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/2.4.0/json/add" />

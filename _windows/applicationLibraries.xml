@@ -122,6 +122,18 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bindex-0.5.0/ext" />
       </SOURCES>
     </library>
+    <library name="bootstrap (v4.0.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-4.0.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-4.0.0/tasks" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-4.0.0/assets" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-4.0.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-4.0.0/tasks" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-4.0.0/assets" />
+      </SOURCES>
+    </library>
     <library name="bootstrap-sass (v3.3.7, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/bootstrap-sass-3.3.7/lib" />
@@ -506,6 +518,16 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/parser-2.4.0.2/bin" />
       </SOURCES>
     </library>
+    <library name="popper_js (v1.12.9, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/popper_js-1.12.9/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/popper_js-1.12.9/assets" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/popper_js-1.12.9/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/popper_js-1.12.9/assets" />
+      </SOURCES>
+    </library>
     <library name="power_assert (v0.4.1, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/power_assert-0.4.1/lib" />
@@ -768,6 +790,14 @@
       </CLASSES>
       <SOURCES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/selenium-webdriver-3.8.0/lib" />
+      </SOURCES>
+    </library>
+    <library name="simple_form (v3.5.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/simple_form-3.5.0/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/simple_form-3.5.0/lib" />
       </SOURCES>
     </library>
     <library name="sprockets (v3.7.1, ruby-2.4.3-p205) [gem]">

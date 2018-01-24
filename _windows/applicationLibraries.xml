@@ -802,14 +802,6 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/selenium-webdriver-3.8.0/lib" />
       </SOURCES>
     </library>
-    <library name="simple_form (v3.5.0, ruby-2.4.3-p205) [gem]">
-      <CLASSES>
-        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/simple_form-3.5.0/lib" />
-      </CLASSES>
-      <SOURCES>
-        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/simple_form-3.5.0/lib" />
-      </SOURCES>
-    </library>
     <library name="sprockets (v3.7.1, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sprockets-3.7.1/lib" />

@@ -458,6 +458,16 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/multi_json-1.13.1/lib" />
       </SOURCES>
     </library>
+    <library name="mustermann (v1.0.1, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/mustermann-1.0.1/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/mustermann-1.0.1/bench" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/mustermann-1.0.1/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/mustermann-1.0.1/bench" />
+      </SOURCES>
+    </library>
     <library name="net-telnet (v0.1.1, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/net-telnet-0.1.1/lib" />
@@ -612,6 +622,14 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rack-2.0.3/example" />
       </SOURCES>
     </library>
+    <library name="rack-protection (v2.0.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rack-protection-2.0.0/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rack-protection-2.0.0/lib" />
+      </SOURCES>
+    </library>
     <library name="rack-test (v0.8.2, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rack-test-0.8.2/lib" />
@@ -754,6 +772,16 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ruby-progressbar-1.9.0/lib" />
       </SOURCES>
     </library>
+    <library name="ruby_http_client (v3.3.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ruby_http_client-3.3.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ruby_http_client-3.3.0/.github" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ruby_http_client-3.3.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ruby_http_client-3.3.0/.github" />
+      </SOURCES>
+    </library>
     <library name="rubyzip (v1.2.1, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rubyzip-1.2.1/lib" />
@@ -800,6 +828,26 @@
       </CLASSES>
       <SOURCES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/selenium-webdriver-3.8.0/lib" />
+      </SOURCES>
+    </library>
+    <library name="sendgrid-ruby (v5.2.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sendgrid-ruby-5.2.0/gemfiles" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sendgrid-ruby-5.2.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sendgrid-ruby-5.2.0/.github" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sendgrid-ruby-5.2.0/gemfiles" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sendgrid-ruby-5.2.0/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sendgrid-ruby-5.2.0/.github" />
+      </SOURCES>
+    </library>
+    <library name="sinatra (v2.0.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sinatra-2.0.0/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sinatra-2.0.0/lib" />
       </SOURCES>
     </library>
     <library name="sprockets (v3.7.1, ruby-2.4.3-p205) [gem]">

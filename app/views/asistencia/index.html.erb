@@ -1,0 +1,90 @@
+<div class="inbox">
+  <h2>Mi Asistencia</h2>
+  <div class="col-md-12 chit-chat-layer1-left" style="font-size: 14px;padding-left: 0px; padding-right: 0px;">
+    <div class="work-progres">
+      <div class="chit-chat-heading" style="text-align: right;">
+        <div class="market-updates" id="pnl_asistencia" style="display: none;">
+          <%= form_with(model: @asistencium, local: true) do |form| %>
+          <% if @asistencium.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@asistencium.errors.count, "error") %> prohibited this asistencium from being saved:</h2>
+
+              <ul>
+                <% @asistencium.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <%= form.hidden_field :ip_conexion, id: :asistencium_ip_conexion %>
+          <%= form.hidden_field :latitud, id: :asistencium_latitud %>
+          <%= form.hidden_field :longitud, id: :asistencium_longitud %>
+          <%= form.button :submit, class:'hvr-grow btn btn_principal', style:'float:right;' do %>
+            <i class="fa fa-location-arrow" aria-hidden="true"></i> Marcar Ingreso
+          <% end %>
+        <% end %>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover mb-none">
+          <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Hora Ingreso</th>
+            <th>Tipo asistencia</th>
+            <th>Fecha Marcada</th>
+            <th>Hora Marcada</th>
+            <th>Observación</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @asistencia.each do |asistencium| %>
+            <tr>
+              <td><%= asistencium.cliente.razon_social %></td>
+              <td><%= asistencium.empleado.hora_ingreso %></td>
+              <td><%= asistencium.tipo_asistencia %></td>
+              <td><%= asistencium.fecha_asistencia.strftime("%Y-%m-%d") %></td>
+              <td><%= asistencium.fecha_asistencia.strftime("%H:%M") %></td>
+              <td>
+                <% if Time.parse(asistencium.fecha_asistencia.strftime("%H:%M")) <= Time.parse(asistencium.empleado.hora_ingreso)%>
+                  <span class="label label-success">Puntual</span>
+                <% else %>
+                  <span class="label label-danger">Impuntual</span>
+                <% end %>
+              </td>
+              <!--<td><%= link_to 'Show', asistencium %></td>
+              <td><%= link_to 'Edit', edit_asistencium_path(asistencium) %></td>
+              <td><%= link_to 'Destroy', asistencium, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    var geolocation = null;
+
+    if (window.navigator && window.navigator.geolocation) {
+        geolocation = window.navigator.geolocation;
+    }
+
+    if (geolocation) {
+        geolocation.getCurrentPosition(function(position) {
+            $('#pnl_asistencia').show();
+            $('#asistencium_latitud').val(position.coords.latitude);
+            $('#asistencium_longitud').val(position.coords.longitude);
+        });
+
+        /*var identifier = geolocation.watchPosition(function(position) {
+            console.log(position);
+        });*/
+    }
+</script>
+
+<!--<%= link_to 'New Asistencium', new_asistencium_path %>-->

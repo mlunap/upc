@@ -1,0 +1,65 @@
+<div class="inbox">
+  <h2>Clientes</h2>
+  <div class="portlet-grid panel-primary col-md-12">
+    <div class="panel-heading">
+      <div class="panel-actions">
+        <%= link_to '', edit_cliente_path(@cliente), class: 'fa fa-pencil', style: 'color:#ffffff;', title: 'Editar' %>
+        <%= link_to '', clientes_path, class: 'fa fa-times', title: 'Cerrar Ventana' %>
+      </div>
+      <h3 class="panel-title">Detalle de Cliente</h3>
+    </div>
+    <div class="panel-body">
+      <di class="row">
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong>Ruc:</strong>
+          <%= @cliente.ruc %>
+        </p>
+
+        <p>
+          <strong>Razon social:</strong>
+          <%= @cliente.razon_social %>
+        </p>
+
+        <p>
+          <strong>Direccion:</strong>
+          <%= @cliente.direccion %>
+        </p>
+
+        <p>
+          <strong>Telefono:</strong>
+          <%= @cliente.telefono %>
+        </p>
+
+        <p>
+          <strong>Estado:</strong>
+          <%= @cliente.estado %>
+        </p>
+
+        <p>
+          <strong>Usuario creacion:</strong>
+          <%= @cliente.usuario_creacion %>
+        </p>
+
+        <p>
+          <strong>Fecha creacion:</strong>
+          <%= @cliente.fecha_creacion %>
+        </p>
+
+        <p>
+          <strong>Usuario modificacion:</strong>
+          <%= @cliente.usuario_modificacion %>
+        </p>
+
+        <p>
+          <strong>Fecha modificacion:</strong>
+          <%= @cliente.fecha_modificacion %>
+        </p>
+      </di>
+    </div>
+  </div>
+
+</div>
+
+

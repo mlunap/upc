@@ -1,0 +1,47 @@
+<div class="inbox">
+  <h2>Empleados</h2>
+  <div class="col-md-12 chit-chat-layer1-left" style="font-size: 14px;padding-left: 0px; padding-right: 0px;">
+    <div class="work-progres">
+      <div class="chit-chat-heading" style="text-align: right;">
+        <%= link_to 'Nuevo', new_empleado_path, class: 'hvr-grow btn btn_principal' %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover mb-none">
+          <thead>
+          <tr>
+            <th>Dni</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Cliente</th>
+            <th>H. Ingreso</th>
+            <th>H. salida</th>
+            <th>Estado</th>
+            <th colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @empleados.each do |empleado| %>
+            <tr>
+              <td><%= empleado.dni %></td>
+              <td><%= empleado.nombres %></td>
+              <td><%= empleado.apellidos %></td>
+              <td><%= empleado.correo %></td>
+              <td><%= empleado.razon_social %></td>
+              <td><%= empleado.hora_ingreso %></td>
+              <td><%= empleado.hora_salida %></td>
+              <td><%= empleado.descripcion %></td>
+              <td><%= link_to raw('<i class="fa fa-list-alt" aria-hidden="true"></i>'), empleado, title: 'Ver Detalle'%></td>
+              <td><%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>'), edit_empleado_path(empleado), title: 'Editar' %></td>
+              <td><%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>'), empleado, method: :delete, data: { confirm: 'Esta seguro de eliminar registro?' }, title: 'Eliminar' %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+

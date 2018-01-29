@@ -1,0 +1,17 @@
+<div class="inbox">
+  <h2>Clientes</h2>
+
+  <div class="portlet-grid panel-primary col-md-12">
+    <div class="panel-heading">
+      <div class="panel-actions">
+        <%= link_to '', clientes_path, class: 'fa fa-times', title: 'Cerrar Ventana' %>
+      </div>
+      <h3 class="panel-title">Nuevo Cliente</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <%= render 'form', cliente: @cliente %>
+      </div>
+    </div>
+  </div>
+</div>

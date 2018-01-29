@@ -1,0 +1,17 @@
+<% provide(:title, "Log in") %>
+<%= form_for(:usuario, url: login_path, :html =>{id:"form", class: "form-horizontal"} ) do |form| %>
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <%= form.text_field :usuario, id: :usuario, :class=>"form-control", :placeholder=>"Usuario", :required=>'required' %>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <%= form.password_field :password, id: :password, :class=>"form-control", :placeholder=>"Contraseña", :required=>'required' %>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12 controls">
+      <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Ingresar</button>
+    </div>
+  </div>
+<% end %>

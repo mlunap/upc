@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: MyString
+  descripcion: MyString
+  usuario_creacion: MyString
+  fecha_creacion: 2018-01-28 16:25:05
+  usuario_modificacion: MyString
+  fecha_modificacion: 2018-01-28 16:25:05
+
+two:
+  codigo: MyString
+  descripcion: MyString
+  usuario_creacion: MyString
+  fecha_creacion: 2018-01-28 16:25:05
+  usuario_modificacion: MyString
+  fecha_modificacion: 2018-01-28 16:25:05

@@ -1,0 +1,52 @@
+<%= form_with(model: asistencium, local: true) do |form| %>
+  <% if asistencium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(asistencium.errors.count, "error") %> prohibited this asistencium from being saved:</h2>
+
+      <ul>
+      <% asistencium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :empleado_id %>
+    <%= form.text_field :empleado_id, id: :asistencium_empleado_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente_id %>
+    <%= form.text_field :cliente_id, id: :asistencium_cliente_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_asistencia %>
+    <%= form.text_field :tipo_asistencia, id: :asistencium_tipo_asistencia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_asistencia %>
+    <%= form.datetime_select :fecha_asistencia, id: :asistencium_fecha_asistencia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ip_conexion %>
+    <%= form.text_field :ip_conexion, id: :asistencium_ip_conexion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitud %>
+    <%= form.text_field :latitud, id: :asistencium_latitud %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitud %>
+    <%= form.text_field :longitud, id: :asistencium_longitud %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

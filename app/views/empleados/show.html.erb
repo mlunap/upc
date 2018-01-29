@@ -1,0 +1,96 @@
+<div class="inbox">
+  <h2>Empleados</h2>
+
+  <div class="portlet-grid panel-primary col-md-12">
+    <div class="panel-heading">
+      <div class="panel-actions">
+        <%= link_to '', edit_empleado_path(@empleado), class: 'fa fa-pencil', style: 'color:#ffffff;', title: 'Editar' %>
+        <%= link_to '', empleados_path, class: 'fa fa-times', title: 'Cerrar Ventana' %>
+      </div>
+      <h3 class="panel-title">Detalle de Empleado</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <p>
+          <strong>Dni:</strong>
+          <%= @empleado.inspect %>
+        </p>
+
+        <p>
+          <strong>Nombres:</strong>
+          <%= @empleado.nombres %>
+        </p>
+
+        <p>
+          <strong>Apellidos:</strong>
+          <%= @empleado.apellidos %>
+        </p>
+
+        <p>
+          <strong>Correo:</strong>
+          <%= @empleado.correo %>
+        </p>
+
+        <p>
+          <strong>Cliente:</strong>
+          <%= @empleado.cliente_id %>
+        </p>
+
+        <p>
+          <strong>Usuario:</strong>
+          <%= @empleado.usuario %>
+        </p>
+
+        <p>
+          <strong>Password:</strong>
+          <%= @empleado.password %>
+        </p>
+
+        <p>
+          <strong>Tipo usuario:</strong>
+          <%= @empleado.tipo_usuario %>
+        </p>
+
+        <p>
+          <strong>Hora ingreso:</strong>
+          <%= @empleado.hora_ingreso %>
+        </p>
+
+        <p>
+          <strong>Hora salida:</strong>
+          <%= @empleado.hora_salida %>
+        </p>
+
+        <p>
+          <strong>Estado:</strong>
+          <%= @empleado.estado %>
+        </p>
+
+        <p>
+          <strong>Foto:</strong>
+          <%= @empleado.foto %>
+        </p>
+
+        <p>
+          <strong>Usuario creacion:</strong>
+          <%= @empleado.usuario_creacion %>
+        </p>
+
+        <p>
+          <strong>Fecha creacion:</strong>
+          <%= @empleado.fecha_creacion %>
+        </p>
+
+        <p>
+          <strong>Usuario modificacion:</strong>
+          <%= @empleado.usuario_modificacion %>
+        </p>
+
+        <p>
+          <strong>Fecha modificacion:</strong>
+          <%= @empleado.fecha_modificacion %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

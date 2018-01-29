@@ -1,0 +1,20 @@
+<div class="inbox">
+  <h2>Empleados</h2>
+
+  <div class="portlet-grid panel-primary col-md-12">
+    <div class="panel-heading">
+      <div class="panel-actions">
+        <%= link_to '', empleados_path, class: 'fa fa-times', title: 'Cerrar Ventana' %>
+      </div>
+      <h3 class="panel-title">Edición de Empleado</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <%= render 'form', empleado: @empleado %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

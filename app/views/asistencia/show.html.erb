@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Empleado:</strong>
+  <%= @asistencium.empleado %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @asistencium.cliente %>
+</p>
+
+<p>
+  <strong>Tipo asistencia:</strong>
+  <%= @asistencium.tipo_asistencia %>
+</p>
+
+<p>
+  <strong>Fecha asistencia:</strong>
+  <%= @asistencium.fecha_asistencia %>
+</p>
+
+<p>
+  <strong>Ip conexion:</strong>
+  <%= @asistencium.ip_conexion %>
+</p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @asistencium.latitud %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @asistencium.longitud %>
+</p>
+
+<%= link_to 'Edit', edit_asistencium_path(@asistencium) %> |
+<%= link_to 'Back', asistencia_path %>

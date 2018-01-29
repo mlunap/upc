@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empleado: one
+  cliente: one
+  tipo_asistencia: MyString
+  fecha_asistencia: 2018-01-27 18:02:00
+  ip_conexion: MyString
+  latitud: MyString
+  longitud: MyString
+
+two:
+  empleado: two
+  cliente: two
+  tipo_asistencia: MyString
+  fecha_asistencia: 2018-01-27 18:02:00
+  ip_conexion: MyString
+  latitud: MyString
+  longitud: MyString

@@ -1,0 +1,6 @@
+<% flash.each do |tipo, mensaje| %>
+  <div class="alert <%= obtener_tipo_alerta_bootstrap(tipo) %> alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <%= mensaje %>
+  </div>
+<% end %>

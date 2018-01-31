@@ -18,6 +18,7 @@ Tecnologias Aplicadas al proyecto:
 * SQLite
 
 Mejoras de la Segunda entrega:
+
 *Se agregó estilos con bootstrap
 *Se creó los modelos asociados a base de datos
 *Se avanzó con el login, mantenimiento de empleados, clientes (al 80%)

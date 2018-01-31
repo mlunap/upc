@@ -19,9 +19,9 @@ Tecnologias Aplicadas al proyecto:
 
 Mejoras de la Segunda entrega:
 
-*Se agregó estilos con bootstrap
-*Se creó los modelos asociados a base de datos
-*Se avanzó con el login, mantenimiento de empleados, clientes (al 80%)
+* Se agregó estilos con bootstrap
+* Se creó los modelos asociados a base de datos
+* Se avanzó con el login, mantenimiento de empleados, clientes (al 80%)
 
 Intregrantes:
 * Luna Pino, Marcos – u201710729

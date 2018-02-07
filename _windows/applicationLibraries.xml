@@ -294,6 +294,22 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.18-x64-mingw32/libtest" />
       </SOURCES>
     </library>
+    <library name="ffi (v1.9.21, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://$APPLICATION_CONFIG_DIR$/rubystubs/rubystubs24/ffi/1.9.21" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/libtest" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/ext" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/gen" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://$APPLICATION_CONFIG_DIR$/rubystubs/rubystubs24/ffi/1.9.21" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/libtest" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/ext" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/ffi-1.9.21-x64-mingw32/gen" />
+      </SOURCES>
+    </library>
     <library name="globalid (v0.4.1, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/globalid-0.4.1/lib" />
@@ -450,6 +466,14 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/minitest-5.11.1/lib" />
       </SOURCES>
     </library>
+    <library name="minitest (v5.11.3, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/minitest-5.11.3/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/minitest-5.11.3/lib" />
+      </SOURCES>
+    </library>
     <library name="multi_json (v1.13.1, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/multi_json-1.13.1/lib" />
@@ -510,6 +534,26 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.1-x64-mingw32/tasks" />
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.1-x64-mingw32/lib" />
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.1-x64-mingw32/ext" />
+      </SOURCES>
+    </library>
+    <library name="nokogiri (v1.8.2, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://$APPLICATION_CONFIG_DIR$/rubystubs/rubystubs24/nokogiri/1.8.2" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/suppressions" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/ext" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/bin" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/patches" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/tasks" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://$APPLICATION_CONFIG_DIR$/rubystubs/rubystubs24/nokogiri/1.8.2" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/suppressions" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/ext" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/bin" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/patches" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/tasks" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/nokogiri-1.8.2-x64-mingw32/lib" />
       </SOURCES>
     </library>
     <library name="openssl (v2.0.5, ruby-2.4.3-p205) [gem]">
@@ -830,6 +874,14 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/selenium-webdriver-3.8.0/lib" />
       </SOURCES>
     </library>
+    <library name="selenium-webdriver (v3.9.0, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/selenium-webdriver-3.9.0/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/selenium-webdriver-3.9.0/lib" />
+      </SOURCES>
+    </library>
     <library name="sendgrid-ruby (v5.2.0, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sendgrid-ruby-5.2.0/gemfiles" />
@@ -954,12 +1006,28 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/tzinfo-1.2.4/lib" />
       </SOURCES>
     </library>
+    <library name="tzinfo (v1.2.5, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/tzinfo-1.2.5/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/tzinfo-1.2.5/lib" />
+      </SOURCES>
+    </library>
     <library name="tzinfo-data (v1.2017.3, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/tzinfo-data-1.2017.3/lib" />
       </CLASSES>
       <SOURCES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/tzinfo-data-1.2017.3/lib" />
+      </SOURCES>
+    </library>
+    <library name="tzinfo-data (v1.2018.3, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/tzinfo-data-1.2018.3/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/tzinfo-data-1.2018.3/lib" />
       </SOURCES>
     </library>
     <library name="uglifier (v4.1.3, ruby-2.4.3-p205) [gem]">
@@ -976,6 +1044,14 @@
       </CLASSES>
       <SOURCES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/uglifier-4.1.4/lib" />
+      </SOURCES>
+    </library>
+    <library name="uglifier (v4.1.5, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/uglifier-4.1.5/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/uglifier-4.1.5/lib" />
       </SOURCES>
     </library>
     <library name="unicode-display_width (v1.3.0, ruby-2.4.3-p205) [gem]">

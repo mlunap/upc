@@ -1,0 +1,151 @@
+<div class="inbox">
+  <h2>Control 360°</h2>
+  <div class="col-md-12 chit-chat-layer1-left" style="font-size: 14px;padding-left: 0px; padding-right: 0px;">
+    <div class="work-progres" style="padding-top: 5px;">
+      <div class="chit-chat-heading">
+        <div class="market-updates" style="font-weight: normal;">
+          <%= form_tag(mapa_path, method: :get, class: :'form-inline', id: :'frmmapa') do %>
+            <div class="form-group">
+              <%= check_box_tag :salida, true, @ver_salida, class:'form-control', onchange:'$("form#frmmapa").submit();', style:"width: 17px; height: 17px;" %>
+              <label>Ver salidas</label>
+            </div>
+            <div class="filtro_principal">
+            <div class="form-group">
+              <label><i class="fa fa-calendar"></i>Fecha</label>
+              <%= text_field_tag :fecha, @fil_fecha, :class=>"form-control", :placeholder=>"yyyy-mm-dd",:required => 'required', :style =>'width:120px;',:'data-plugin-datepicker'=>'', :'data-date-format'=>'yyyy-mm-dd' %>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-smile-o"></i>Empleado</label>
+              <%= select_tag :empleado, options_for_select(@empleados.collect{
+                  |e| [e.nombres , e.id]}, @empleado_id), :class=>"form-control" %>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success" type="submit"><i class="fa fa-search"></i> Buscar</button>
+            </div>
+            </div>
+          <% end %>
+          <div class="clearfix"></div>
+          <div class="form-inline filtro_principal">
+            <span class="label label-success">Puntuales : <%= @total_puntuales %></span>
+            <span class="label label-warning">Pendientes : <%= @total_pendientes %></span>
+            <span class="label label-danger">Impuntuales: <%= @total_tardes %></span>
+            <span class="label label-danger">Total horas Tardanza: <%= @total_horas_tardes %></span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="table-responsive" style="padding-top: 10px;">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .filtro_principal {
+    display: inline-block;
+    float: right;
+  }
+  label{
+    font-weight: normal;
+  }
+  @media (max-width: 830px) {
+    .filtro_principal {
+      float: none;
+    }
+  }
+  @media (max-width: 769px) {
+    .form-inline .form-group {
+      display: inline-block;
+    }
+  }
+  #map{
+    height: calc(100vh - 4em - 64px);
+  }
+
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh_udrWqHlTgqAzmYEK1oc-69XyCNx44g"></script>
+<script>
+
+    var posicion = {latitud : null, longitud:null}
+    var map;
+    iniciar_mapa(null, posicion);
+    function dibujar_marcador(color) {
+        return {
+            path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+            fillColor: color,
+            fillOpacity: 1,
+            strokeColor: '#000',
+            strokeWeight: 2,
+            scale: 1,
+        };
+    }
+
+    function iniciar_mapa(listAsistencia, posicion) {
+        var myLatlng = new google.maps.LatLng(-12.111956, -76.990154);
+        var mapOptions = {
+            zoom: 12,
+            center: myLatlng,
+            styles: [{"featureType":"all","elementType":"all","stylers":[{"visibility":"simplified"},{"hue":"#bc00ff"},{"saturation":"0"}]},{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#e8b8f9"}]},{"featureType":"administrative.country","elementType":"labels","stylers":[{"color":"#ff0000"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"visibility":"simplified"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#3e114e"},{"visibility":"simplified"}]},{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"},{"color":"#a02aca"}]},{"featureType":"landscape.natural","elementType":"all","stylers":[{"visibility":"simplified"},{"color":"#2e093b"}]},{"featureType":"landscape.natural","elementType":"labels.text","stylers":[{"color":"#9e1010"},{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"labels.text.fill","stylers":[{"color":"#ff0000"}]},{"featureType":"landscape.natural.landcover","elementType":"all","stylers":[{"visibility":"simplified"},{"color":"#58176e"}]},{"featureType":"landscape.natural.landcover","elementType":"labels.text.fill","stylers":[{"visibility":"simplified"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"simplified"},{"color":"#a02aca"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#d180ee"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"simplified"},{"color":"#a02aca"}]},{"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"off"},{"color":"#ff0000"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#a02aca"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#cc81e7"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"visibility":"simplified"},{"hue":"#bc00ff"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#6d2388"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#c46ce3"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#b7918f"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#280b33"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"simplified"},{"color":"#a02aca"}]}]
+        }
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var contentString = "Oficina Prinicipal";
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            icon: dibujar_marcador("#0B5345"),
+            title: "Administrador",
+            label: {text: 'Oficina Principal', color: "teal"},
+            draggable: true,
+            zIndex:1
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    }
+
+    // Datepicker
+    (function( $ ) {
+        'use strict';
+        if ( $.isFunction($.fn[ 'datepicker' ]) ) {
+
+            $(function() {
+                $('[data-plugin-datepicker]').each(function() {
+                    var $this = $( this ),
+                        opts = {};
+                    var pluginOptions = $this.data('plugin-options');
+                    if (pluginOptions)
+                        opts = pluginOptions;
+                    $this.themePluginDatePicker(opts);
+                });
+            });
+
+        }
+    }).apply(this, [ jQuery ]);
+
+    <% index = 0; %>
+    <% @asistencia.each do |as| %>
+    var contentString = "<h5><%= as.empleado.nombres+ " " + as.empleado.apellidos + " ("+ as.empleado.dni+")" %></h5><label>Hora Programada:</label> <%= as.empleado.hora_ingreso %> ";
+    contentString += "<hr><label> Hora Marcada : <%= as.fecha_asistencia.strftime("%H:%M") %></label> "+ '<%= raw(observacion_asistencia(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))))%>';
+    <% if @ver_salida == "true" %>
+      contentString += '<br> <label> Hora Salida Marcada : <%= !as.fecha_salida.nil? ? Time.parse(as.fecha_salida).strftime("%H:%M"):"" %> </label>';
+    <% end %>
+    var infowindow<%=index %> = new google.maps.InfoWindow({
+        content: contentString
+    });
+    var marker<%=index %> = new google.maps.Marker({
+        position: { lat: parseFloat(<%= as.latitud %>), lng: parseFloat(<%= as.longitud %>) },
+        map: map,
+        icon: dibujar_marcador('<%= datos_tardanza(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))) == ""? "#2E86C1" :"#E74C3C"  %>'),
+        title: '<%= as.empleado.apellidos %>',
+        draggable: true,
+        label: {text: '<%= as.empleado.apellidos %>', color: "teal"}
+    });
+    marker<%=index %>.addListener('click', function () {
+        infowindow<%=index %>.open(map, marker<%=index %>);
+    });
+    <%index=index +1 %>
+    <% end %>
+</script>

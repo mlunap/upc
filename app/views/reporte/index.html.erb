@@ -1,0 +1,99 @@
+<div class="inbox">
+  <h2>Reporte de Asistencia</h2>
+  <div class="col-md-12 chit-chat-layer1-left" style="font-size: 14px;padding-left: 0px; padding-right: 0px;">
+    <div class="work-progres" style="padding-top: 5px;">
+      <div class="chit-chat-heading">
+        <div class="market-updates">
+          <div class="form-group" style="font-weight: normal;">
+            <div class="col-md-1" style="padding-left: 0px; max-width:50px;padding-right: 0px;">
+              <%= link_to raw('<i class="fa fa-file-excel-o"></i> Excel'), excel_asistencia_path(format: "xls",fecha_ini:@fil_fecha_ini,fecha_fin:@fil_fecha_fin,datos:@fil_data  ), class: "btn btn-success" %>
+            </div>
+            <%= form_tag(reporte_path, method: :get) do %>
+              <div class="col-md-6 input-group mb-md" style="float: right; max-width: 350px;">
+                <%= text_field_tag :datos,@fil_data, class:"form-control", placeholder:"Buscar por cliente o empleado" %>
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+              <div class="col-md-6" style="float: right;max-width: 350px;">
+                <div class="input-daterange input-group" data-plugin-datepicker data-date-format="yyyy-mm-dd" data-date-language="es">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <%= text_field_tag :fecha_ini, @fil_fecha_ini, :class=>"form-control", :placeholder=>"yyyy-mm-dd",:required => 'required' %>
+                <span class="input-group-addon">Hasta</span>
+                <%= text_field_tag :fecha_fin, @fil_fecha_fin, :class=>"form-control", :placeholder=>"yyyy-mm-dd",:required => 'required' %>
+              </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="table-responsive" style="padding-top: 10px;">
+        <table class="table table-hover mb-none table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>DNI</th>
+              <th>Empleado</th>
+              <th>Cliente</th>
+              <th>Hora Programada</th>
+              <th>Fecha Asistencia</th>
+              <th>Hora Ingreso</th>
+              <th>Latitud Ingreso</th>
+              <th>Longitud Ingreso</th>
+              <th>Hora Salida</th>
+              <th>Observación</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @asistencia.each do |as| %>
+            <tr>
+              <td><%= as.empleado.dni %></td>
+              <td><%= as.empleado.nombres + " "+ as.empleado.apellidos %></td>
+              <td><%= as.cliente.razon_social %></td>
+              <td><%= as.empleado.hora_ingreso %></td>
+              <td><%= as.fecha_asistencia.strftime("%Y-%m-%d") %></td>
+              <td><%= as.fecha_asistencia.strftime("%H:%M") %></td>
+              <td><%= as.latitud %></td>
+              <td><%= as.longitud %></td>
+              <td><%= !as.fecha_salida.nil? ? Time.parse(as.fecha_salida).strftime("%H:%M"):"" %></td>
+              <td>
+                <%= raw(observacion_asistencia(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M")))) %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+      // Datepicker
+      (function( $ ) {
+          'use strict';
+          if ( $.isFunction($.fn[ 'datepicker' ]) ) {
+
+              $(function() {
+                  $('[data-plugin-datepicker]').each(function() {
+                      var $this = $( this ),
+                          opts = {};
+                      var pluginOptions = $this.data('plugin-options');
+                      if (pluginOptions)
+                          opts = pluginOptions;
+                      $this.themePluginDatePicker(opts);
+                  });
+              });
+
+          }
+      }).apply(this, [ jQuery ]);
+
+</script>
+
+<style>
+  .input-group .form-control {
+    position: initial;
+  }
+  .input-group-btn > .btn {
+    position: initial;
+  }
+</style>

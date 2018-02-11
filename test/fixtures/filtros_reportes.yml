@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cadena: MyString
+  fecha_inicio: MyString
+  fecha_fin: MyString
+
+two:
+  cadena: MyString
+  fecha_inicio: MyString
+  fecha_fin: MyString

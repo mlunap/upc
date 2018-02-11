@@ -41,7 +41,7 @@ class EmpleadosController < ApplicationController
         @empleado.usuario = @empleado.correo.split('@')[0].downcase
         @empleado.password = @empleado.nombres[0]+@empleado.apellidos[0]+@empleado.dni[0..3]
         @empleado.usuario_creacion = usuario_actual.usuario
-        @empleado.fecha_creacion = Time.now
+        @empleado.fecha_creacion = Time.now.strftime("%Y-%m-%d %H:%M:%S")
         if @empleado.save
           HelperMailer.enviar_email(@empleado, 'Credenciales de Acceso al Sistema').deliver
           format.html { redirect_to empleados_url, notice: 'Datos de empleado registrado correctamente.' }
@@ -73,7 +73,7 @@ class EmpleadosController < ApplicationController
   def update
     respond_to do |format|
       @empleado.usuario_modificacion = usuario_actual.usuario
-      @empleado.fecha_modificacion = Time.now
+      @empleado.fecha_modificacion = Time.now.strftime("%Y-%m-%d %H:%M:%S")
       if @empleado.update(empleado_params)
         format.html { redirect_to empleados_url, notice: 'Datos de empleado actualizado correctamente.' }
         #format.html { redirect_to @empleado, notice: 'Datos de empleado actualizado correctamente.' }

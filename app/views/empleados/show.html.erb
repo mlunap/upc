@@ -33,7 +33,7 @@
 
         <div class="col-md-6">
           <strong>Cliente:</strong>
-          <%= @empleado.cliente_id %>
+          <%= razon_social_cliente(@empleado.cliente_id) %>
         </div>
 
         <div class="col-md-6">
@@ -48,7 +48,7 @@
 
         <div class="col-md-6">
           <strong>Tipo usuario:</strong>
-          <%= @empleado.tipo_usuario %>
+          <%= @empleado.tipo_usuario == "ADM" ? "Administrador" : "Empleado"  %>
         </div>
 
         <div class="col-md-6">
@@ -63,7 +63,7 @@
 
         <div class="col-md-6">
           <strong>Estado:</strong>
-          <%= @empleado.estado %>
+          <%= descripcion_estado(@empleado.estado) %>
         </div>
         <div class="col-md-6">
           <strong>Usuario creacion:</strong>
@@ -88,7 +88,7 @@
         <div class="clearfix"></div>
         <div class="col-md-5"></div>
         <div class="col-md-4">
-          <% if !@empleado.foto.nil? %>
+          <% if !@empleado.foto.nil? and @empleado.foto != "" %>
             <%=image_tag(@empleado.foto, alt: "", class: "foto_empleado")%>
           <% else %>
             <span class="label label-warning">sin foto</span>

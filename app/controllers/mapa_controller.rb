@@ -34,7 +34,7 @@ class MapaController < ApplicationController
         @total_horas_tardes += horas_aux
       end
     }
-    @total_empleados = @empleados.count
+    @total_empleados = @empleados.count - 1
     @total_pendientes = @total_empleados - (@total_puntuales + @total_tardes)
   end
 

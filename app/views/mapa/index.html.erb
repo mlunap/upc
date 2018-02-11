@@ -29,7 +29,7 @@
             <span class="label label-success">Puntuales : <%= @total_puntuales %></span>
             <span class="label label-warning">Pendientes : <%= @total_pendientes %></span>
             <span class="label label-danger">Impuntuales: <%= @total_tardes %></span>
-            <span class="label label-danger">Total horas Tardanza: <%= @total_horas_tardes %></span>
+            <span class="label label-danger">Total horas Tardanza: <%= @total_horas_tardes.round(2) %></span>
           </div>
           <div class="clearfix"></div>
         </div>

@@ -30,7 +30,7 @@
                   <li class="dropdown profile_details_drop">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                       <div class="profile_img">
-                        <span class="prfil-img"><%=image_tag("p1.jpg", alt: "", class: "imagen_perfil")%> </span>
+                        <span class="prfil-img"><%=image_tag(foto_perfil, alt: "", class: "imagen_perfil")%> </span>
                         <div class="user-name">
                           <p><%= usuario_actual.nombres.split(' ')[0] %></p>
                           <span><%= usuario_actual.tipo_usuario == "ADM"? "Admin" : "Empleado" %></span>
@@ -41,7 +41,7 @@
                       </div>
                     </a>
                     <ul class="dropdown-menu drp-mnu">
-                      <li> <a href="#"><i class="fa fa-cog"></i> Configuracion</a> </li>
+                      <li> <%= link_to raw('<i class="fa fa-cog"></i> Cambiar Contraseña'), login_edit_url %>
                       <li> <%= link_to raw('<i class="fa fa-sign-out"></i> Salir'), logout_path, method: :delete %> </li>
                     </ul>
                   </li>
@@ -51,10 +51,10 @@
               <div class="profile_details_right">
                 <ul id="menu" class="nofitications-dropdown" >
                   <!--<li class="dropdown head-dpdn" ><a href="index-2.html"><i class="fa fa-tachometer"></i><span>Home</span></a></li>-->
-                  <li class="dropdown head-dpdn"><a href="/empleados"><i class="fa fa-group"></i><span>Colaboradores</span></a></li>
-                  <li class="dropdown head-dpdn"><a href="/clientes"><i class="fa fa-briefcase"></i><span>Clientes</span></a></li>
-                  <li class="dropdown head-dpdn"><a href="maps.html"><i class="fa fa-map-marker"></i><span>Vista 360°</span></a></li>
-                  <li class="dropdown head-dpdn"><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Reportes</span></a></li>
+                  <li id="mn_empleado" class="dropdown head-dpdn"><a href="/empleados"><i class="fa fa-group"></i><span>Colaboradores</span></a></li>
+                  <li id="mn_cliente" class="dropdown head-dpdn"><a href="/clientes"><i class="fa fa-briefcase"></i><span>Clientes</span></a></li>
+                  <li id="mn_vista" class="dropdown head-dpdn"><a href="/mapa"><i class="fa fa-map-marker"></i><span>Control 360°</span></a></li>
+                  <li id="mn_reporte" class="dropdown head-dpdn"><a href="/reporte"><i class="fa fa-bar-chart"></i><span>Reportes</span></a></li>
                 </ul>
                 <div class="clearfix"> </div>
               </div>
@@ -76,6 +76,13 @@
     </div>
 
     <div id="particles"></div>
-    <!--<%=javascript_tag("jquery.nicescroll.js")%>-->
+    <script>
+
+        $(function(){
+            //$('li').removeClass('item-activo');
+            $('#<%=@id_menu %>').addClass('item-activo');
+          cargar_animacion();
+        });
+    </script>
   </body>
 </html>

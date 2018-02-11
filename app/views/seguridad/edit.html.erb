@@ -1,0 +1,46 @@
+<% provide(:title, "Log in") %>
+<%= form_for(:usuario, url: login_edit_path, :html =>{id:"form", class: "form-horizontal"} ) do |form| %>
+
+  <div class="input-group" style="width: 100%;">
+    <center>
+      <div style="width: 151px;">
+        <%=image_tag(@foto, alt: "", class: "foto_empleado", id: "img_foto", style: "display: block; border: 2px solid #4A235A;")%>
+        <input style="height: 100%;top: 0;position: absolute; opacity: 0;width: 150px; cursor: pointer;" type="file" onchange="encodeImageFileAsURL(this)" title="click para seleccionar foto" />
+        <%= form.hidden_field :foto, id: :empleado_foto, class:'form-control', value: @foto  %>
+      </div>
+    </center>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-check"></i></span>
+    <%= form.password_field :password_actual, id: :password_actual, :class=>"form-control", :placeholder=>"Contraseña actual", :required=>'required' %>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <%= form.password_field :password_nuevo, id: :password_nuevo, :class=>"form-control", :placeholder=>"Contraseña nueva", :required=>'required' %>
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <%= form.password_field :password_confirmado, id: :password_confirmado, :class=>"form-control", :placeholder=>"Confirmar contraseña nueva", :required=>'required' %>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12 controls">
+      <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-ok"></i> Cambiar</button>
+    </div>
+  </div>
+
+  <script>
+      function encodeImageFileAsURL(element) {
+          var file = element.files[0];
+          var reader = new FileReader();
+          reader.onloadend = function() {
+              $('#empleado_foto').val(reader.result);
+              $('#img_foto').attr('src', reader.result);
+          }
+          reader.readAsDataURL(file);
+      }
+  </script>
+<% end %>
+

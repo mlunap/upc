@@ -1,41 +1,39 @@
 <%= form_with(model: empleado, local: true, class: '') do |form| %>
   <% if empleado.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(empleado.errors.count, "error") %> prohibited this empleado from being saved:</h2>
-
-      <ul>
-      <% empleado.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <% empleado.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
   <div class="col-md-6 form-group">
     <%= form.label :dni, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :dni, id: :empleado_dni, class:'form-control' %>
+      <%= form.text_field :dni, id: :empleado_dni, class:'form-control', required:'required', maxlength:8, onkeypress:'return soloNumeros(event);' %>
     </div>
   </div>
-
   <div class="col-md-6 form-group">
     <%= form.label :nombres, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :nombres, id: :empleado_nombres, class:'form-control' %>
+      <%= form.text_field :nombres, id: :empleado_nombres, class:'form-control',required:'required', maxlength:150 %>
     </div>
   </div>
 
   <div class="col-md-6 form-group">
     <%= form.label :apellidos, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :apellidos, id: :empleado_apellidos, class:'form-control' %>
+      <%= form.text_field :apellidos, id: :empleado_apellidos, class:'form-control',required:'required', maxlength:150 %>
     </div>
   </div>
 
   <div class="col-md-6 form-group">
     <%= form.label :correo, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.email_field :correo, id: :empleado_correo, class:'form-control' %>
+      <%= form.email_field :correo, id: :empleado_correo, class:'form-control',required:'required', maxlength:150 %>
     </div>
   </div>
 
@@ -46,32 +44,26 @@
           |c| [c.razon_social, c.id]}, empleado.cliente_id),{},{ id: :empleado_cliente_id, class:'form-control'} %>
     </div>
   </div>
-  <!--<div class="col-md-6 form-group">
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :empleado_password %>
-  </div>-->
 
   <div class="col-md-6 form-group">
     <%= form.label :tipo_usuario,'T. Usuario', class:'col-md-3 control-label' %>
     <div class="col-md-9">
       <%= form.select :tipo_usuario, options_for_select(@tipos_usuario.collect{
           |c| [c.desprincion, c.codigo]}, empleado.tipo_usuario),{},{ id: :empleado_tipo_usuario, class:'form-control'} %>
-      <!--<%= form.text_field :tipo_usuario, id: :empleado_tipo_usuario, class:'form-control' %>-->
     </div>
   </div>
 
   <div class="col-md-6 form-group">
     <%= form.label :hora_ingreso, 'H. Ingreso', class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :hora_ingreso, id: :empleado_hora_ingreso, class:'form-control' %>
+      <%= form.time_field :hora_ingreso, id: :empleado_hora_ingreso, class:'form-control', required:'required', maxlength:5, value:empleado.hora_ingreso %>
     </div>
   </div>
 
   <div class="col-md-6 form-group">
-    <%= form.label :hora_salida,'H. Ingreso', class:'col-md-3 control-label' %>
+    <%= form.label :hora_salida,'H. Salida', class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :hora_salida, id: :empleado_hora_salida, class:'form-control' %>
+      <%= form.time_field :hora_salida, id: :empleado_hora_salida, class:'form-control', required:'required', maxlength:5, value:empleado.hora_salida %>
     </div>
   </div>
 
@@ -83,25 +75,12 @@
     </div>
   </div>
 
-  <div class="col-md-6 form-group">
-    <%= form.label :foto, class:'col-md-3 control-label' %>
-    <div class="col-md-9">
-      <div class="fileupload fileupload-new" data-provides="fileupload">
-        <div class="input-append">
-          <div class="uneditable-input">
-            <i class="fa fa-file fileupload-exists"></i>
-            <span class="fileupload-preview"></span>
-          </div>
-          <span class="btn btn-default btn-file">
-						<span class="fileupload-exists"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-						<span class="fileupload-new"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-						<input id="flFoto" type="file" />
-          </span>
-          <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <!--<%= form.text_field :foto, id: :empleado_foto, class:'form-control'  %>-->
-    </div>
+  <div class="clearfix"></div>
+  <div class="col-md-5"></div>
+  <div class="col-md-3">
+    <%=image_tag(empleado.foto.nil? ? "foto_desconocido.png" : empleado.foto, alt: "", class: "foto_empleado", id: "img_foto", style: "display: block; border: 2px solid #4A235A;")%>
+    <input style="height: 100%;top: 0;position: absolute; opacity: 0;width: 150px; cursor: pointer;" type="file" onchange="encodeImageFileAsURL(this)" title="click para seleccionar foto" />
+    <%= form.hidden_field :foto, id: :empleado_foto, class:'form-control'  %>
   </div>
 
   <div class="col-md-12 form-group">
@@ -111,13 +90,16 @@
       <% end %>
     </div>
   </div>
-<script>
-  function generar_usuario() {
-      var nombres = $('#empleado_nombres').val();
-      var apellidos = $('#empleado_apellidos').val();
-      if(nombres != '' && apellidos != ''){
-          $('#empleado_usuario').val(nombres.split(' ')[0].toLowerCase() + '.' + apellidos.split(' ')[0].toLowerCase())
+  <script>
+
+      function encodeImageFileAsURL(element) {
+          var file = element.files[0];
+          var reader = new FileReader();
+          reader.onloadend = function() {
+              $('#empleado_foto').val(reader.result);
+              $('#img_foto').attr('src', reader.result);
+          }
+          reader.readAsDataURL(file);
       }
-  }
-</script>
+  </script>
 <% end %>

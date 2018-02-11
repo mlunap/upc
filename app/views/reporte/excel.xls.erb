@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Styles>
+    <Style ss:ID="s23">
+      <Interior ss:Color="#239B56" ss:Pattern="Solid"/>
+       <Font ss:FontName="Arial Unicode MS" ss:Size="11" ss:Bold="1" ss:Color="#ffffff"/>
+    </Style>
+    <Style ss:ID="s24">
+      <Interior ss:Color="#d9534f" ss:Pattern="Solid"/>
+        <Font ss:FontName="Arial Unicode MS" ss:Size="10" ss:Color="#ffffff"/>
+    </Style>
+    <Style ss:ID="s25">
+      <Font ss:FontName="Arial Unicode MS" ss:Size="10"/>
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Asistencia">
+    <Table >
+      <Row>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">DNI</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Empleado</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Cliente</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Hora Programada</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Fecha Asistencia</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Hora Ingreso</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Latitud Ingreso</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Longitud Ingreso</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Hora Salida</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Latitud Salida</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Longitud Salida</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Observación</Data></Cell>
+      </Row>
+      <% @asistencia.each do |as| %>
+        <Row>
+          <Cell ss:StyleID="s25"><Data ss:Type="Number"><%= as.empleado.dni %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.empleado.nombres + " "+ as.empleado.apellidos %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.cliente.razon_social %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.empleado.hora_ingreso %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.fecha_asistencia.strftime("%Y-%m-%d") %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.fecha_asistencia.strftime("%H:%M") %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.latitud %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.longitud %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= !as.fecha_salida.nil? ? Time.parse(as.fecha_salida).strftime("%H:%M"):"" %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.latitud_salida %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.longitud_salida %></Data></Cell>
+          <Cell ss:StyleID="<%= datos_tardanza(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))) == ""? "s25" :"s24"  %>"><Data ss:Type="String"><%= datos_tardanza(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))) %></Data></Cell>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

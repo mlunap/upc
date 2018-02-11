@@ -11,85 +11,89 @@
     </div>
     <div class="panel-body">
       <div class="row">
-        <p>
+        <div class="col-md-6">
           <strong>Dni:</strong>
-          <%= @empleado.inspect %>
-        </p>
+          <%= @empleado.dni %>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Nombres:</strong>
           <%= @empleado.nombres %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Apellidos:</strong>
           <%= @empleado.apellidos %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Correo:</strong>
           <%= @empleado.correo %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Cliente:</strong>
           <%= @empleado.cliente_id %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Usuario:</strong>
           <%= @empleado.usuario %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Password:</strong>
           <%= @empleado.password %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Tipo usuario:</strong>
           <%= @empleado.tipo_usuario %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Hora ingreso:</strong>
           <%= @empleado.hora_ingreso %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Hora salida:</strong>
           <%= @empleado.hora_salida %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Estado:</strong>
           <%= @empleado.estado %>
-        </p>
-
-        <p>
-          <strong>Foto:</strong>
-          <%= @empleado.foto %>
-        </p>
-
-        <p>
+        </div>
+        <div class="col-md-6">
           <strong>Usuario creacion:</strong>
           <%= @empleado.usuario_creacion %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Fecha creacion:</strong>
-          <%= @empleado.fecha_creacion %>
-        </p>
+          <%= @empleado.fecha_creacion.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Usuario modificacion:</strong>
           <%= @empleado.usuario_modificacion %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Fecha modificacion:</strong>
-          <%= @empleado.fecha_modificacion %>
-        </p>
+          <%= @empleado.fecha_modificacion.nil? ? "" : @empleado.fecha_modificacion.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="col-md-5"></div>
+        <div class="col-md-4">
+          <% if !@empleado.foto.nil? %>
+            <%=image_tag(@empleado.foto, alt: "", class: "foto_empleado")%>
+          <% else %>
+            <span class="label label-warning">sin foto</span>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

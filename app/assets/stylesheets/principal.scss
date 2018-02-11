@@ -900,6 +900,12 @@ ul.dropdown-menu {
   border-radius: 50%;
 }
 
+.foto_empleado{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
 .user-name {
   float: left;
   margin-top: 7px;
@@ -5233,4 +5239,22 @@ td >a{
 
 .btn_disabled{
 
+}
+
+.btn-success{
+  background-color: #239B56 !important;
+  border-color: #239B56 !important;
+}
+
+.input-group-addon{
+  color: #FFFFFF;
+  background-color: #4A235A;
+  border: 1px solid #4A235A;
+}
+
+.item-activo{
+  background-color: #4A235A;
+  a{
+    color: #FFFFFF !important;
+  }
 }

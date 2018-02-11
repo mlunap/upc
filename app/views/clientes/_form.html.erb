@@ -1,41 +1,40 @@
 <%= form_with(model: cliente, local: true) do |form| %>
   <% if cliente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
-
-      <ul>
-      <% cliente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <% cliente.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
   <div class="col-md-6 form-group">
     <%= form.label :ruc, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :ruc, id: :cliente_ruc , class:'form-control'%>
+      <%= form.text_field :ruc, id: :cliente_ruc , class:'form-control', required:'required', maxlength:11, onkeypress:'return soloNumeros(event);' %>
     </div>
   </div>
 
   <div class="col-md-6 form-group">
     <%= form.label :razon_social, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :razon_social, id: :cliente_razon_social, class:'form-control' %>
+      <%= form.text_field :razon_social, id: :cliente_razon_social, class:'form-control', required:'required', maxlength:200 %>
     </div>
   </div>
 
   <div class="col-md-6 form-group">
     <%= form.label :direccion, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :direccion, id: :cliente_direccion, class:'form-control' %>
+      <%= form.text_field :direccion, id: :cliente_direccion, class:'form-control', required:'required', maxlength:100 %>
     </div>
   </div>
 
   <div class="col-md-6 form-group">
     <%= form.label :telefono, class:'col-md-3 control-label' %>
     <div class="col-md-9">
-      <%= form.text_field :telefono, id: :cliente_telefono, class:'form-control' %>
+      <%= form.text_field :telefono, id: :cliente_telefono, class:'form-control', required:'required', maxlength:15, onkeypress:'return soloNumeros(event);' %>
     </div>
   </div>
 

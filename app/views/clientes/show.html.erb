@@ -9,57 +9,53 @@
       <h3 class="panel-title">Detalle de Cliente</h3>
     </div>
     <div class="panel-body">
-      <di class="row">
-        <p id="notice"><%= notice %></p>
-
-        <p>
+      <div class="row">
+        <div class="col-md-6">
           <strong>Ruc:</strong>
           <%= @cliente.ruc %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Razon social:</strong>
           <%= @cliente.razon_social %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Direccion:</strong>
           <%= @cliente.direccion %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Telefono:</strong>
           <%= @cliente.telefono %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Estado:</strong>
           <%= @cliente.estado %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Usuario creacion:</strong>
           <%= @cliente.usuario_creacion %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Fecha creacion:</strong>
-          <%= @cliente.fecha_creacion %>
-        </p>
+          <%= @cliente.fecha_creacion.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Usuario modificacion:</strong>
           <%= @cliente.usuario_modificacion %>
-        </p>
+        </div>
 
-        <p>
+        <div class="col-md-6">
           <strong>Fecha modificacion:</strong>
-          <%= @cliente.fecha_modificacion %>
-        </p>
-      </di>
+          <%= @cliente.fecha_modificacion.nil? ? "" : @cliente.fecha_modificacion.strftime("%Y-%m-%d %H:%M:%S") %>
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
-
-

@@ -13,9 +13,10 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "principal";
 @import "font-awesome";
+@import "datepicker/datepicker3";
 @import "fileupload/bootstrap-fileupload.min";
+@import "principal";
 #particles {
   width: 100%;
   height: 100%;

@@ -20,8 +20,10 @@
           <%= form.hidden_field :ip_conexion, id: :asistencium_ip_conexion %>
           <%= form.hidden_field :latitud, id: :asistencium_latitud %>
           <%= form.hidden_field :longitud, id: :asistencium_longitud %>
+          <%= form.hidden_field :tipo_asistencia, id: :asistencium_tipo_asistencia, value: @asistencium.tipo_asistencia%>
+          <%= form.hidden_field :id_ingreso, id: :asistencium_id_ingreso, value: @asistencium.id_ingreso%>
           <%= form.button :submit, class:'hvr-grow btn btn_principal', style:'float:right;' do %>
-            <i class="fa fa-location-arrow" aria-hidden="true"></i> Marcar Ingreso
+            <i class="fa fa-location-arrow" aria-hidden="true"></i> Marcar <%= @asistencium.tipo_asistencia == "ING"? "Ingreso" : "Salida" %>
           <% end %>
         <% end %>
           <div class="clearfix"></div>
@@ -32,32 +34,24 @@
           <thead>
           <tr>
             <th>Cliente</th>
+            <th>Hora Programada</th>
+            <th>Fecha Asistencia</th>
             <th>Hora Ingreso</th>
-            <th>Tipo asistencia</th>
-            <th>Fecha Marcada</th>
-            <th>Hora Marcada</th>
+            <th>Hora Salida</th>
             <th>Observación</th>
           </tr>
           </thead>
-
           <tbody>
-          <% @asistencia.each do |asistencium| %>
+          <% @asistencia.each do |as| %>
             <tr>
-              <td><%= asistencium.cliente.razon_social %></td>
-              <td><%= asistencium.empleado.hora_ingreso %></td>
-              <td><%= asistencium.tipo_asistencia %></td>
-              <td><%= asistencium.fecha_asistencia.strftime("%Y-%m-%d") %></td>
-              <td><%= asistencium.fecha_asistencia.strftime("%H:%M") %></td>
+              <td><%= as.cliente.razon_social %></td>
+              <td><%= as.empleado.hora_ingreso %></td>
+              <td><%= as.fecha_asistencia.strftime("%Y-%m-%d") %></td>
+              <td><%= as.fecha_asistencia.strftime("%H:%M") %></td>
+              <td><%= !as.fecha_salida.nil? ? Time.parse(as.fecha_salida).strftime("%H:%M"):"" %></td>
               <td>
-                <% if Time.parse(asistencium.fecha_asistencia.strftime("%H:%M")) <= Time.parse(asistencium.empleado.hora_ingreso)%>
-                  <span class="label label-success">Puntual</span>
-                <% else %>
-                  <span class="label label-danger">Impuntual</span>
-                <% end %>
+                <%= raw(observacion_asistencia(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M")))) %>
               </td>
-              <!--<td><%= link_to 'Show', asistencium %></td>
-              <td><%= link_to 'Edit', edit_asistencium_path(asistencium) %></td>
-              <td><%= link_to 'Destroy', asistencium, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
             </tr>
           <% end %>
           </tbody>
@@ -76,9 +70,11 @@
 
     if (geolocation) {
         geolocation.getCurrentPosition(function(position) {
-            $('#pnl_asistencia').show();
-            $('#asistencium_latitud').val(position.coords.latitude);
-            $('#asistencium_longitud').val(position.coords.longitude);
+            if($('#asistencium_tipo_asistencia').val() != 'FIN') {
+                $('#pnl_asistencia').show();
+                $('#asistencium_latitud').val(position.coords.latitude);
+                $('#asistencium_longitud').val(position.coords.longitude);
+            }
         });
 
         /*var identifier = geolocation.watchPosition(function(position) {

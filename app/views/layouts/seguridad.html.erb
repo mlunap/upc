@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Colaboradores - Acceso al Sistema</title>
+  <title>Colaboradores - <%= @titulo %></title>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'seguridad', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style>
+    .panel-actions a {
+      background-color: transparent;
+      border-radius: 2px;
+      color: #FF0426;
+      font-size: 18px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      width: 24px;
+    }
+
+    .panel-actions {
+      float: right;
+      right: 15px;
+      top: 15px;
+      display: block;
+    }
+
+    .panel-actions a, .panel-actions a:focus, .panel-actions a:hover, .panel-actions a:active, .panel-actions a:visited {
+      outline: none !important;
+      text-decoration: none !important;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -21,7 +46,15 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <div class="panel-title text-center">Acceso al Sistema</div>
+        <div class="panel-title text-center"><%= @titulo%>
+          <% if @show_cerrar.nil? %>
+            <div class="panel-actions">
+              <%= link_to '', home_url, class: 'fa fa-times cerrar', title: 'Cerrar Ventana' %>
+            </div>
+          <% end %>
+        </div>
+
+
       </div>
       <div class="panel-body">
         <%= yield %>

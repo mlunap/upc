@@ -1126,6 +1126,16 @@
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/will_paginate-3.1.6/lib" />
       </SOURCES>
     </library>
+    <library name="will_paginate-bootstrap (v1.0.1, ruby-2.4.3-p205) [gem]">
+      <CLASSES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/will_paginate-bootstrap-1.0.1/example" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/will_paginate-bootstrap-1.0.1/lib" />
+      </CLASSES>
+      <SOURCES>
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/will_paginate-bootstrap-1.0.1/example" />
+        <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/will_paginate-bootstrap-1.0.1/lib" />
+      </SOURCES>
+    </library>
     <library name="xmlrpc (v0.2.1, ruby-2.4.3-p205) [gem]">
       <CLASSES>
         <root url="file://C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/xmlrpc-0.2.1/lib" />

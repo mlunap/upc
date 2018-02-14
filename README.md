@@ -23,8 +23,13 @@ Mejoras de la Segunda entrega:
 * Se creó los modelos asociados a base de datos
 * Se avanzó con el login, mantenimiento de empleados, clientes (al 80%)
 
+Entrega Final:
+
+* Se finalizó todos los módulos del proyecto y la adaptación responsive para dispositivos móviles
+
+
 Intregrantes:
-* Luna Pino, Marcos – u201710729
+* Luna Pino, Marcos – u201710729 - Coordinador del Proyecto
 * García Palomino, Eduardo – u201710698
 * Escobedo Ríos, David - u200010914
 * Damián Oscuvilca, Banjamin -  u120207

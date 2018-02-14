@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/mapa', to: 'mapa#index'
+  get '/listar_empleado', to: 'mapa#listar_empleado'
 
   get '/reporte', to: 'reporte#index'
   get '/excel_asistencia', to: 'reporte#excel'

@@ -53,3 +53,5 @@ gem 'jquery-rails'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
 #gem 'sendgrid-ruby'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'

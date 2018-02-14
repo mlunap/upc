@@ -127,7 +127,12 @@
                 $('#asistencium_longitud').val(position.coords.longitude);
             }
         });
-
+        if(es_navegador_movil() && $('#asistencium_tipo_asistencia').val() != 'FIN'){
+            $('#pnl_asistencia').show();
+            //Solo para test(UPC)
+            $('#asistencium_latitud').val(-12.104138);
+            $('#asistencium_longitud').val(-76.963535);
+        }
         /*var identifier = geolocation.watchPosition(function(position) {
             console.log(position);
         });*/

@@ -8,33 +8,7 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'seguridad', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <style>
-    .panel-actions a {
-      background-color: transparent;
-      border-radius: 2px;
-      color: #FF0426;
-      font-size: 18px;
-      height: 24px;
-      line-height: 24px;
-      text-align: center;
-      width: 24px;
-    }
-
-    .panel-actions {
-      float: right;
-      right: 15px;
-      top: 15px;
-      display: block;
-    }
-
-    .panel-actions a, .panel-actions a:focus, .panel-actions a:hover, .panel-actions a:active, .panel-actions a:visited {
-      outline: none !important;
-      text-decoration: none !important;
-    }
-
-  </style>
 </head>
-
 <body>
 <div class="container">
   <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
@@ -43,8 +17,7 @@
         <%= render partial: "layouts/logo", flash: flash, locals: {tamano: 'width=216 height=84'} %>
       </div>
     </div>
-
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="<%= @show_cerrar.nil? ? "margin-bottom: 80px;" :"" %>">
       <div class="panel-heading">
         <div class="panel-title text-center"><%= @titulo%>
           <% if @show_cerrar.nil? %>
@@ -53,19 +26,30 @@
             </div>
           <% end %>
         </div>
-
-
       </div>
       <div class="panel-body">
         <%= yield %>
         <%= render partial: "layouts/message", flash: flash %>
       </div>
     </div>
+    <% if !@show_cerrar.nil? %>
+    <div class="clearfix text-center">
+      <%=image_tag("p1.jpg", alt: "", class: "foto_rihanna", style: "border: 2px solid #4A235A;")%>
+      <p style="margin-bottom: 80px;">Un agradecimiento especial a <b style="color: #4A235A;">Rihanna</b> <b style="color: #2874A6;">Luna</b> por contribuir con la selecci&oacute;n de colores de la web.</p>
+    </div>
+    <% end %>
   </div>
 </div>
 <div id="footer">
-  &copy; <%= Date.today.year %> Rihanna - Proyecto UPC
+  &copy; <%= Date.today.year %> Proyecto UPC
 </div>
 <div id="particles"></div>
+<style>
+  .foto_rihanna{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+</style>
 </body>
 </html>

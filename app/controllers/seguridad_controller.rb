@@ -2,15 +2,16 @@ class SeguridadController < ApplicationController
   include ApplicationHelper
   layout "seguridad"
   def index
+    @show_cerrar = false
     @titulo = 'Acceso al Sistema'
   end
 
   def acceder
     empleado = Empleado.find_by(usuario:params[:usuario][:usuario].downcase)
-    @foto = empleado.foto
-    empleado.foto = nil
     if !empleado.nil? then
       if empleado.password == params[:usuario][:password] then
+        @foto = empleado.foto
+        empleado.foto = nil
         iniciar_sesion empleado
         #validamos el primer ingreso
         if !empleado.usuario_modificacion.nil? then
@@ -20,16 +21,22 @@ class SeguridadController < ApplicationController
             redirect_to asistencia_url
           end
         else
+
+          @foto = foto_defecto unless (!@foto.nil? and @foto != "")
           @titulo = 'Cambio de Contraseña'
           @show_cerrar = false
           #redirect_to login_edit_url
           render 'edit'
         end
       else
+        @show_cerrar = false
+        @titulo = 'Acceso al Sistema'
         flash.now[:danger] = 'El Password es incorrecto.'
         render 'index'
       end
     else
+      @show_cerrar = false
+      @titulo = 'Acceso al Sistema'
       flash.now[:danger] = 'El usuario es inválido.'
       render 'index'
     end

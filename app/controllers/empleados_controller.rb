@@ -1,6 +1,7 @@
 class EmpleadosController < ApplicationController
   before_action :set_empleado, only: [:show, :edit, :update, :destroy]
   before_action :set_menu
+  before_action :validad_inicio_sesion
   # GET /empleados
   # GET /empleados.json
   def index

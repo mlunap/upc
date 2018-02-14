@@ -62,25 +62,31 @@
 </div>
 
 <script>
-    var geolocation = null;
 
-    if (window.navigator && window.navigator.geolocation) {
-        geolocation = window.navigator.geolocation;
+    var geolocation = null;
+    var latitud = "";var longitud = "";
+    if (navigator && navigator.geolocation) {
+        geolocation = navigator.geolocation;
     }
 
     if (geolocation) {
         geolocation.getCurrentPosition(function(position) {
             if($('#asistencium_tipo_asistencia').val() != 'FIN') {
                 $('#pnl_asistencia').show();
-                $('#asistencium_latitud').val(position.coords.latitude);
-                $('#asistencium_longitud').val(position.coords.longitude);
+                latitud = position.coords.latitude;
+                longitud = position.coords.longitude;
+                $('#asistencium_latitud').val(latitud);
+                $('#asistencium_longitud').val(longitud);
             }
         });
-
-        /*var identifier = geolocation.watchPosition(function(position) {
-            console.log(position);
-        });*/
+        if(es_navegador_movil() && $('#asistencium_tipo_asistencia').val() != 'FIN'){
+            $('#pnl_asistencia').show();
+            //Solo para test(UPC)
+            $('#asistencium_latitud').val(-12.104138);
+            $('#asistencium_longitud').val(-76.963535);
+        }
     }
+
+
 </script>
 
-<!--<%= link_to 'New Asistencium', new_asistencium_path %>-->

@@ -1,6 +1,7 @@
 class AsistenciaController < ApplicationController
   before_action :set_asistencium, only: [:show, :edit, :update, :destroy]
   before_action :set_menu
+  before_action :validad_inicio_sesion
   # GET /asistencia
   # GET /asistencia.json
   def index

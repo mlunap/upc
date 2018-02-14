@@ -67,7 +67,7 @@ body {
 
 .panel {
   background-color: transparent;
-  margin-bottom: 80px;
+  /*margin-bottom: 80px;*/
 }
 
 .panel-body {
@@ -113,4 +113,27 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+
+.panel-actions a {
+  background-color: transparent;
+  border-radius: 2px;
+  color: #FF0426;
+  font-size: 18px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  width: 24px;
+}
+
+.panel-actions {
+  float: right;
+  right: 15px;
+  top: 15px;
+  display: block;
+}
+
+.panel-actions a, .panel-actions a:focus, .panel-actions a:hover, .panel-actions a:active, .panel-actions a:visited {
+  outline: none !important;
+  text-decoration: none !important;
 }

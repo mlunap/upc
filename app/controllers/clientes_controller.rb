@@ -1,6 +1,7 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
   before_action :set_menu
+  before_action :validad_inicio_sesion
   # GET /clientes
   # GET /clientes.json
   def index

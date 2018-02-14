@@ -28,9 +28,11 @@
         <Cell ss:StyleID="s23"><Data ss:Type="String">Hora Ingreso</Data></Cell>
         <Cell ss:StyleID="s23"><Data ss:Type="String">Latitud Ingreso</Data></Cell>
         <Cell ss:StyleID="s23"><Data ss:Type="String">Longitud Ingreso</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Ip Ingreso</Data></Cell>
         <Cell ss:StyleID="s23"><Data ss:Type="String">Hora Salida</Data></Cell>
         <Cell ss:StyleID="s23"><Data ss:Type="String">Latitud Salida</Data></Cell>
         <Cell ss:StyleID="s23"><Data ss:Type="String">Longitud Salida</Data></Cell>
+        <Cell ss:StyleID="s23"><Data ss:Type="String">Ip Salida</Data></Cell>
         <Cell ss:StyleID="s23"><Data ss:Type="String">Observación</Data></Cell>
       </Row>
       <% @asistencia.each do |as| %>
@@ -43,9 +45,11 @@
           <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.fecha_asistencia.strftime("%H:%M") %></Data></Cell>
           <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.latitud %></Data></Cell>
           <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.longitud %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.ip_conexion %></Data></Cell>
           <Cell ss:StyleID="s25"><Data ss:Type="String"><%= !as.fecha_salida.nil? ? Time.parse(as.fecha_salida).strftime("%H:%M"):"" %></Data></Cell>
           <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.latitud_salida %></Data></Cell>
           <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.longitud_salida %></Data></Cell>
+          <Cell ss:StyleID="s25"><Data ss:Type="String"><%= as.ip_salida %></Data></Cell>
           <Cell ss:StyleID="<%= datos_tardanza(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))) == ""? "s25" :"s24"  %>"><Data ss:Type="String"><%= datos_tardanza(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))) %></Data></Cell>
         </Row>
       <% end %>

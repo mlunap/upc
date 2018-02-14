@@ -17,4 +17,10 @@ module SeguridadHelper
     @usuario_actual = nil
   end
 
+  def validad_inicio_sesion
+    if !usuario_logeado?
+      redirect_to login_path
+    end
+  end
+
 end

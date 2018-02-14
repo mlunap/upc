@@ -10,18 +10,23 @@
               <label>Ver salidas</label>
             </div>
             <div class="filtro_principal">
-            <div class="form-group">
-              <label><i class="fa fa-calendar"></i>Fecha</label>
-              <%= text_field_tag :fecha, @fil_fecha, :class=>"form-control", :placeholder=>"yyyy-mm-dd",:required => 'required', :style =>'width:120px;',:'data-plugin-datepicker'=>'', :'data-date-format'=>'yyyy-mm-dd' %>
-            </div>
-            <div class="form-group">
-              <label><i class="fa fa-smile-o"></i>Empleado</label>
-              <%= select_tag :empleado, options_for_select(@empleados.collect{
-                  |e| [e.nombres , e.id]}, @empleado_id), :class=>"form-control" %>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-success" type="submit"><i class="fa fa-search"></i> Buscar</button>
-            </div>
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i>Fecha</span>
+                <%= text_field_tag :fecha, @fil_fecha, :class=>"form-control", :placeholder=>"yyyy-mm-dd",:required => 'required', :style =>'width:120px;position:initial;',:'data-plugin-datepicker'=>'', :'data-date-format'=>'yyyy-mm-dd' %>
+              </div>
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="fa fa-building"></i>Cliente</span>
+                <%= select_tag :cliente, options_for_select(@clientes.collect{
+                    |e| [e.nombres , e.id]}, @cliente_id), :class=>"form-control", :style => "position:initial;" %>
+              </div>
+              <div class="form-group input-group">
+                <span class="input-group-addon"><i class="fa fa-group"></i>Empleados</span>
+                <%= select_tag :empleado, options_for_select(@empleados.collect{
+                    |e| [e.nombres , e.id]}, @empleado_id), :class=>"selectpicker dropdown", title: "--Seleccione empleado--" ,multiple: true, :required => 'required', :'data-count-selected-text'=>'Empleados seleccionados', :'data-selected-text-format'=>'count>0' %>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success" type="submit"><i class="fa fa-search"></i> Buscar</button>
+              </div>
             </div>
           <% end %>
           <div class="clearfix"></div>
@@ -45,17 +50,22 @@
     display: inline-block;
     float: right;
   }
+
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group{
+    position: initial;
+  }
+
   label{
     font-weight: normal;
   }
   @media (max-width: 830px) {
     .filtro_principal {
-      float: none;
+      /*float: none;*/
     }
   }
   @media (max-width: 769px) {
     .form-inline .form-group {
-      display: inline-block;
+      display: inline-table;
     }
   }
   #map{
@@ -63,12 +73,11 @@
   }
 
 </style>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh_udrWqHlTgqAzmYEK1oc-69XyCNx44g"></script>
-<script>
 
-    var posicion = {latitud : null, longitud:null}
+<script>
+    //$(document).ready(function () {
     var map;
-    iniciar_mapa(null, posicion);
+    iniciar_mapa();
     function dibujar_marcador(color) {
         return {
             path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
@@ -80,7 +89,7 @@
         };
     }
 
-    function iniciar_mapa(listAsistencia, posicion) {
+    function iniciar_mapa() {
         var myLatlng = new google.maps.LatLng(-12.111956, -76.990154);
         var mapOptions = {
             zoom: 12,
@@ -104,6 +113,7 @@
         marker.addListener('click', function () {
             infowindow.open(map, marker);
         });
+        cargar_marcadores_asistencia();
     }
 
     // Datepicker
@@ -126,26 +136,77 @@
     }).apply(this, [ jQuery ]);
 
     <% index = 0; %>
-    <% @asistencia.each do |as| %>
-    var contentString = "<h5><%= as.empleado.nombres+ " " + as.empleado.apellidos + " ("+ as.empleado.dni+")" %></h5><label>Hora Programada:</label> <%= as.empleado.hora_ingreso %> ";
-    contentString += "<hr><label> Hora Marcada : <%= as.fecha_asistencia.strftime("%H:%M") %></label> "+ '<%= raw(observacion_asistencia(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))))%>';
-    <% if @ver_salida == "true" %>
-      contentString += '<br> <label> Hora Salida Marcada : <%= !as.fecha_salida.nil? ? Time.parse(as.fecha_salida).strftime("%H:%M"):"" %> </label>';
-    <% end %>
-    var infowindow<%=index %> = new google.maps.InfoWindow({
-        content: contentString
+    function cargar_marcadores_asistencia() {
+      <% @asistencia.each do |as| %>
+      var contentString = "<h5><%= as.empleado.nombres+ " " + as.empleado.apellidos + " ("+ as.empleado.dni+")" %></h5><label>Hora Programada:</label> <%= as.empleado.hora_ingreso %> ";
+      contentString += "<hr><label> Hora Marcada : <%= as.fecha_asistencia.strftime("%H:%M") %></label> "+ '<%= raw(observacion_asistencia(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))))%>';
+      <% if @ver_salida == "true" %>
+        contentString += '<br> <label> Hora Salida Marcada : <%= !as.fecha_salida.nil? ? Time.parse(as.fecha_salida).strftime("%H:%M"):"" %> </label>';
+      <% end %>
+      var infowindow<%=index %> = new google.maps.InfoWindow({
+          content: contentString
+      });
+      var marker<%=index %> = new google.maps.Marker({
+          position: { lat: parseFloat(<%= as.latitud %>), lng: parseFloat(<%= as.longitud %>) },
+          map: map,
+          icon: dibujar_marcador('<%= datos_tardanza(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))) == ""? "#2E86C1" :"#E74C3C"  %>'),
+          title: '<%= as.empleado.nombres + " " + as.empleado.apellidos %>',
+          draggable: true,
+          label: {text: '<%= as.empleado.nombres + " " + as.empleado.apellidos %>', color: "teal"}
+      });
+      marker<%=index %>.addListener('click', function () {
+          infowindow<%=index %>.open(map, marker<%=index %>);
+      });
+      <%index=index +1 %>
+      <% end %>
+    }
+
+    $("#cliente").change(function(e){
+        e.preventDefault();
+        let ajax=AjaxGeneral("listar_empleado","GET",{ idCliente: $('#cliente option:selected').val() })
     });
-    var marker<%=index %> = new google.maps.Marker({
-        position: { lat: parseFloat(<%= as.latitud %>), lng: parseFloat(<%= as.longitud %>) },
-        map: map,
-        icon: dibujar_marcador('<%= datos_tardanza(Time.parse(as.empleado.hora_ingreso), Time.parse(as.fecha_asistencia.strftime("%H:%M"))) == ""? "#2E86C1" :"#E74C3C"  %>'),
-        title: '<%= as.empleado.apellidos %>',
-        draggable: true,
-        label: {text: '<%= as.empleado.apellidos %>', color: "teal"}
+
+    var todos = true;
+    $("#empleado").change(function(e){
+        ids = $("#empleado").val();
+        if(ids[0] == 0 && !todos){
+            $("#empleado").val(0);
+            todos = true;
+        }else {
+            todos = false;
+            ids = ids.filter(function(item) {
+                return item != 0
+            });
+            $("#empleado").val(ids);
+        }
+        $("#empleado").selectpicker('refresh');
     });
-    marker<%=index %>.addListener('click', function () {
-        infowindow<%=index %>.open(map, marker<%=index %>);
-    });
-    <%index=index +1 %>
-    <% end %>
+
+    function AjaxGeneral(url, tipo, Data) {
+        return $.ajax({
+            type: tipo,
+            url: url,
+            data: Data,
+            dataType: 'json',
+            error: function (xhr, status, error) {
+                var err = xhr.responseText + " " + status;
+                alert(err);
+            },
+            success: function (response) {
+                //$("#empleado").selectpicker('refresh')
+                $("#empleado").html('');
+                for(var i in response)
+                {
+                    var id = response[i].id;
+                    var title = response[i].nombres + ' ';
+                    $("#empleado").append(new Option(title, id));
+                }
+                $("#empleado").val(0);
+                $("#empleado").selectpicker('refresh');
+                todos = true;
+            }
+        });
+    }
+    $("#empleado").selectpicker('refresh');
+    //});
 </script>
